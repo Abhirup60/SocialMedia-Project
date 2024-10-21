@@ -22,7 +22,7 @@ const Form = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const res = await fetch(`https://social-media-project-three.vercel.app/${isSignPage ? 'login': 'register'}`, {
+    const res = await fetch(`https://social-media-project-three.vercel.app/api/${isSignPage ? 'login': 'register'}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
