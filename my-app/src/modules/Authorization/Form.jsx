@@ -33,21 +33,21 @@ const Form = ({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),  // Directly pass `data`
+        body: JSON.stringify(data),  
       });
   
       if (res.ok) {
         const { token } = await res.json();
         window.localStorage.setItem('user:token', token);
-        console.log('Successfully logged in/registered');  // Debugging output
+        // console.log('Successfully logged in/registered');  
         navigate('/');  // Redirect on success
       } else {
-        const errorMessage = await res.text();  // Extract error message from response
-        console.error('Failed to login/register:', errorMessage);  // Log specific error
-        alert('Login/Register failed: ' + errorMessage);  // Show user-friendly error
+        const errorMessage = await res.text();  
+        // console.error('Failed to login/register:', errorMessage);
+        alert('Login/Register failed: ' + errorMessage); 
       }
     } catch (error) {
-      console.error('Error during form submission:', error);  // Log any other errors
+      // console.error('Error during form submission:', error);
       alert('An error occurred. Please try again.');
     }
   };

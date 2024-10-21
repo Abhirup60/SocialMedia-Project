@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(()=>{
     const fetchPosts = async()=>{
-      const response = await fetch("http://localhost:8000/api/posts", {
+      const response = await fetch("https://social-media-project-three.vercel.app/api/posts", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
