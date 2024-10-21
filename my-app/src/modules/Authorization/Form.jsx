@@ -21,23 +21,37 @@ const Form = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!data.email || !data.password || (!isSignPage && !data.username)) {
+      alert('Please fill in all fields.');
+      return;
+    }
   
-    const res = await fetch(`https://social-media-project-three.vercel.app/api/${isSignPage ? 'login': 'register'}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...data }),
-    });
+    try {
+      const res = await fetch(`https://social-media-project-three.vercel.app/api/${isSignPage ? 'login' : 'register'}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),  // Directly pass `data`
+      });
   
-    if (res.ok) {
-      const { token } = await res.json();
-      window.localStorage.setItem('user:token', token);
-      navigate('/');
-    } else {
-      console.log('Failed to login/register');
+      if (res.ok) {
+        const { token } = await res.json();
+        window.localStorage.setItem('user:token', token);
+        console.log('Successfully logged in/registered');  // Debugging output
+        navigate('/');  // Redirect on success
+      } else {
+        const errorMessage = await res.text();  // Extract error message from response
+        console.error('Failed to login/register:', errorMessage);  // Log specific error
+        alert('Login/Register failed: ' + errorMessage);  // Show user-friendly error
+      }
+    } catch (error) {
+      console.error('Error during form submission:', error);  // Log any other errors
+      alert('An error occurred. Please try again.');
     }
   };
+  
 
   return (
     <div className='bg-[#d2cfdf] h-screen w-full flex justify-center items-center'>
