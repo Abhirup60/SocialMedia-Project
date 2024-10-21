@@ -22,7 +22,7 @@ const Form = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const res = await fetch(`http://localhost:8000/api/${isSignPage ? 'login': 'register'}`, {
+    const res = await fetch(`https://social-media-project-three.vercel.app/${isSignPage ? 'login': 'register'}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
