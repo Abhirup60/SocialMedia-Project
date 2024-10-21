@@ -37,7 +37,7 @@ const Createpost = () => {
             const { secure_url } = await uploadImage();
             seturl(secure_url);
         
-            const response = await fetch('http://localhost:8000/api/new-post', {
+            const response = await fetch('https://social-media-project-three.vercel.app/api/new-post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
