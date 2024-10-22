@@ -48,7 +48,7 @@ const Form = ({
         alert('Login/Register failed: ' + errorMessage); 
       }
     } catch (error) {
-      // console.error('Error during form submission:', error);
+      console.error('Error during form submission:', error);
       alert('An error occurred. Please try again.');
     }
   };

@@ -17,18 +17,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://social-media-project-frontend.vercel.app", // Allow your frontend domain
+  origin: "https://social-media-project-frontend.vercel.app", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+  allowedHeaders: ['Content-Type', 'Authorization'], 
 }));
 
 
 const port = process.env.PORT || 8000;
 
-// app.get("/", (req, res) => {
-//   res.send("hello!!");
-// });
+app.get("/", (req, res) => {
+  res.send("hello!!");
+});
 
 app.post("/api/register", async (req, res) => {
   try {
