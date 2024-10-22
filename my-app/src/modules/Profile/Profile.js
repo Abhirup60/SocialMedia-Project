@@ -11,7 +11,7 @@ const Profile = () => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await fetch("https://social-media-project-three.vercel.app/api/profile", {
+      const response = await fetch("https://social-media-project-server.vercel.app/api/profile", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

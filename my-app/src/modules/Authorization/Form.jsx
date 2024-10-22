@@ -28,7 +28,7 @@ const Form = ({
     }
   
     try {
-      const res = await fetch(`https://social-media-project-three.vercel.app/api/${isSignPage ? 'login' : 'register'}`, {
+      const res = await fetch(`https://social-media-project-server.vercel.app/api/${isSignPage ? 'login' : 'register'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
