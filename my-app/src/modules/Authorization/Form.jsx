@@ -41,7 +41,7 @@ const Form = ({
         const { token } = await res.json();
         window.localStorage.setItem('user:token', token);
         // console.log('Successfully logged in/registered');
-        alert(`Logged in successfully ${username}`)  
+        // alert(`Logged in successfully ${username}`)  
         navigate('/');  // Redirect on success
       } else {
         const errorMessage = await res.text();  
