@@ -69,9 +69,14 @@ const Home = () => {
         <div className='h-[15%] border border-t-black'>
           <div className='ml-12 cursor-pointer pt-6 flex'>
             <img src={Logout} height={"30px"} width={"30px"} />
+            {username ? 
             <Link to='/account/signin' className='ml-3'>
               Log Out
+            </Link> :
+            <Link to='/account/signin' className='ml-3'>
+              Login
             </Link>
+            }
           </div>
         </div>
       </div>
